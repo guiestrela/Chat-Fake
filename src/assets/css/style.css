@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.avatar--top--bar {
+    width: 40px;
+    height: 40px;
+}
+
+.avatar--left--bar {
+    width: 48px;
+    height: 48px;
+}
+
+.background--white {
+    background-color: white;
+}
+
+.background--green {
+    background-color: lightgreen;
+}
+
+.color--grey {
+    color: #707991;
+}
+
+.color--ice--blue {
+    color: #8BABD8;
+}
+
+.quantity--messages {
+    width: 18px;
+    height: 18px
+}
+
+.font--family {
+    font-family: "Inter", serif;
+}
+
+.font--size--16 {
+    font-size: 16px;
+}
+
+.font--family--14 {
+    font-size: 14px;
+}
+
+.font--weight--bold {
+    font-weight: bold;
+};
