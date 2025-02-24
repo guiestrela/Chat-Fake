@@ -22,6 +22,13 @@
     background-color: lightgreen;
 }
 
+.background--messages {
+    background: #8BABD8;
+    background-image: url(/src/assets/images/background.png);
+    width: 100%;
+    height: 100%;
+}
+
 .background--light--grey {
     background-color: #f5f5f5;
 }
@@ -146,4 +153,63 @@
 .div--sidebar--icons {
     padding-right:20px;
     gap: 30px;
+}
+
+.div--container--messages {
+    padding-bottom: 20px;
+    padding-left: 200px;
+    padding-right: 200px;    
+}
+
+.date--chat {
+    width: 71px;
+    height: 28px;
+    border-radius: 15px;
+    background: #3D70B899;
+    font-family: "Inter", serif;
+    font-size: 16px;;
+    color: white;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 12px;
+    font-family: "Inter", serif;
+    font-size: 16px;
+    max-width: 400px;
+    gap: 5px;
+}
+
+.other {
+    background-color: white;
+}
+
+.infos--message {
+    gap: 5px;
+}
+
+.you {
+    background-color: #78E378;
+}
+
+.div--messages {
+    gap: 10px;
+}
+
+.div--text--field {
+    height: 56px;
+    width: 100%;;
+    border-radius: 10px;
+    background-color: white;
+
+}
+
+.text--field {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: transparent;
+    outline: 0;
+    font-family: "Inter", serif;
+    font-size: 16px;
 }

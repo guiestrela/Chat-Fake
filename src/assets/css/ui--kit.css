@@ -71,6 +71,10 @@ body{
     flex: 5;
 }
 
+.flex--6 {
+    flex: 6;
+}
+
 .flex--10 {
     flex: 10;
 }
@@ -81,4 +85,20 @@ body{
 
 .container {
     height: 100vh;
+}
+
+.width--100 {
+    width: 100%;
+}
+
+.font--size--12 {
+    font-size: 12px;
+}
+
+.color--white {
+    color: white;
+}
+
+.cursor--pointer {
+    cursor:pointer
 }
