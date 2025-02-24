@@ -71,6 +71,14 @@ body{
     flex: 5;
 }
 
+.flex--10 {
+    flex: 10;
+}
+
+.flex--13 {
+    flex: 13;
+}
+
 .container {
     height: 100vh;
 }
