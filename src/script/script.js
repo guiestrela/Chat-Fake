@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputMsg = document.querySelector("#inputMensagem");
     console.log(inputMsg);
 
-    inputMsg.ariaPlaceholder = "Digite sua mensagem aqui";
+    inputMsg.placeholder = "Please enter your message";
 
     const buttons = document.querySelectorAll(".cursor--pointer");
     console.log(buttons);
