@@ -1,12 +1,17 @@
+body{
+    border: 0px;
+    margin: 0px;;
+}
+
 .flex {
     display: flex;
 }
 
-.flex--diration--row {
+.flex--direction--row {
     flex-direction: row;
 }
 
-.flex--diration--column {
+.flex--direction--column {
     flex-direction: column;
 }
 
@@ -54,10 +59,18 @@
     flex: 3;
 }
 
+.flex--3-5 {
+    flex: 3.5;
+}
+
 .flex--4 {
     flex: 4;
 }
 
 .flex--5 {
     flex: 5;
+}
+
+.container {
+    height: 100vh;
 }

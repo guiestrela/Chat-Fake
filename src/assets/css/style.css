@@ -10,12 +10,20 @@
     height: 48px;
 }
 
+.left--bar {
+    border: 0.5px solid #D9DCE0;
+}
+
 .background--white {
     background-color: white;
 }
 
 .background--green {
     background-color: lightgreen;
+}
+
+.background--light--grey {
+    background-color: #f5f5f5;
 }
 
 .color--grey {
@@ -46,3 +54,73 @@
 .font--weight--bold {
     font-weight: bold;
 };
+
+.menu {
+    height: 70px;
+}
+
+.search {
+    padding-right: 20px;
+}
+
+.div--search {
+    border-radius: 25px;
+    padding: 1px;
+    width: 100%;
+    
+}
+
+.div--search input {
+    border: 0;
+    background: transparent;
+    outline: 0;
+    flex-grow: 1;
+    color: #707991;
+    font-family: "Inter", serif;
+    font-weight: bold;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.area--contact {
+    height: 72px;
+    padding-left: 5px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.infos--contact {
+    gap: 5px;
+}
+
+.div--contacts {
+    margin-top: 10px;
+}
+
+.last--message {
+    font-family: "Inter", serif;
+    font-weight: normal;
+    font-size: 14px;
+    color: #707991;
+}
+
+.hour--last--message {
+    font-family: "Inter", serif;
+    font-weight: normal;
+    font-size: 12px;
+    color: #707991;
+}
+
+.quantity--last--viewed--messages {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-family: "Inter", serif;
+    font-size: 12px;
+    color: white    
+}
+
+.div--last--messages--info {
+    gap: 5px;    
+}
+
