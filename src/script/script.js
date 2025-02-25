@@ -13,7 +13,4 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(buttonSend);
 
     buttonSend.classList.add("minha-classe-modulo-um");
-})
-
-
-
+});
