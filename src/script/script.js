@@ -12,5 +12,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttonSend = document.querySelector(".cursor--pointer[src*='send']");
     console.log(buttonSend);
 
-    buttonSend.classList.add("minha-classe-modulo-um");
+    //buttonSend.classList.add("minha-classe-modulo-um");
+
+    function sendAlert() {
+        const texto = inputMsg.value.trim();
+        
+        if (texto === "") {
+            alert("Please enter a message");
+        } else {
+            alert(`Your message is: ${texto}`);
+        }
+    }
+
+    buttonSend.addEventListener("click", () => {
+        sendAlert();
+    });
+
+    inputMsg.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            sendAlert();
+        }
+    });
 });
