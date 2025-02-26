@@ -160,14 +160,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                 ${contato.nome}
                             </div>
                             <img src="src/assets/icons/verified.svg" alt="">
-                        </div>  
-                            
+                        </div>                            
                         <div class="last--message">
                             ${contato.ultimaMensagem}
                         </div>
                     </div>
                 </div>
-
                 <div class="flex flex--direction--column justify--content--center align--items--end flex--1 div--last--messages--info">
                     <div class="hour--last--message">
                         ${contato.horarioUltimaMensagem}
