@@ -66,8 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const listaMensagens = document.querySelector(".div--messages");
     console.log(listaMensagens);
 
-    //buttonSend.classList.add("minha-classe-modulo-um");
-
     const respostasParaOBot = [
         "Olá, tudo bem?",
         "Como você está?",
@@ -100,8 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const mensagemRenderizada = renderizarMensagem("recebida", mensagemDoBot, "21:21");
         listaMensagens.appendChild(mensagemRenderizada);
     }
-
-    
 
     buttonSend.addEventListener("click", () => {
         enviarMensagem();
@@ -154,35 +150,36 @@ document.addEventListener("DOMContentLoaded", () => {
             divParentElement.classList.add("flex", "area--contact", "fade-in");
 
             divParentElement.innerHTML = `
-                    <div class="flex justify--content--center align--items--center flex--1">
-                        <img class="avatar--left--bar" src="${contato.avatar}" alt="">
-                    </div>
-
-                    <div class="flex flex--direction--column justify--content--center flex--3">
-                        <div>
-                            <div class="flex align--items--center infos--contact">    
-                            <div class="font--family font--weight--bold">${contato.nome}</div>
-                            <img src="src/assets/icons/verified.svg" alt="">
-                            </div>  
-                            
-                            <div class="last--message">${contato.ultimaMensagem}
+                <div class="flex justify--content--center align--items--center flex--1">
+                    <img class="avatar--left--bar" src="${contato.avatar}" alt="">
+                </div>
+                <div class="flex flex--direction--column justify--content--center flex--3">
+                    <div>
+                        <div class="flex align--items--center infos--contact">    
+                            <div class="font--family font--weight--bold">
+                                ${contato.nome}
                             </div>
+                            <img src="src/assets/icons/verified.svg" alt="">
+                        </div>  
+                            
+                        <div class="last--message">
+                            ${contato.ultimaMensagem}
                         </div>
                     </div>
+                </div>
 
-                    <div class="flex flex--direction--column justify--content--center align--items--end flex--1 div--last--messages--info">
-                        <div class="hour--last--message">
-                            ${contato.horarioUltimaMensagem}
-                        </div>
-                        <div class="flex justify--content--center align--items--center quantity--last--viewed--messages background--green">
-                            1
-                        </div>
+                <div class="flex flex--direction--column justify--content--center align--items--end flex--1 div--last--messages--info">
+                    <div class="hour--last--message">
+                        ${contato.horarioUltimaMensagem}
                     </div>
+                    <div class="flex justify--content--center align--items--center quantity--last--viewed--messages background--green">
+                        1
+                    </div>
+                </div>
                 `;
                 divParentElement.addEventListener("click", () => {
                     carregarMensagemContato(index);
                 });
-                
                 divContatosElement.appendChild(divParentElement);
         });
     }
