@@ -2,7 +2,7 @@ const listaDeContatos = [
     {
         id: 1,
         nome: "João",
-        ultimaMensagem: "Olá, tudo bem?",
+        ultimaMensagem: "Vamos codar juntos?",
         horarioUltimaMensagem: "15:30",
         avatar: "src/assets/images/Avatar00.png",
         conversas: [
@@ -14,7 +14,7 @@ const listaDeContatos = [
     {
         id: 2,
         nome: "Mario",
-        ultimaMensagem: "Qual era o codigo?",
+        ultimaMensagem: "ok. vou te enviar um proposta",
         horarioUltimaMensagem: "15:30",
         avatar: "src/assets/images/Avatar00.png",
         conversas: [
@@ -26,7 +26,7 @@ const listaDeContatos = [
     {
         id: 3,
         nome: "Maria",
-        ultimaMensagem: "Olá, o projeto, está pronto?",
+        ultimaMensagem: "quer ir na praia?",
         horarioUltimaMensagem: "15:30",
         avatar: "src/assets/images/Avatar00.png",
         conversas: [
@@ -38,7 +38,7 @@ const listaDeContatos = [
     {
         id: 4,
         nome: "Carla",
-        ultimaMensagem: "Tem café",
+        ultimaMensagem: "Tem café ai?",
         horarioUltimaMensagem: "15:30",
         avatar: "src/assets/images/Avatar00.png",
         conversas: [
@@ -65,6 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const listaMensagens = document.querySelector(".div--messages");
     console.log(listaMensagens);
+
+    const inputBuscaContato = document.querySelector(".div--search input[type='search']");
+    console.log(inputBuscaContato);
+
+    inputBuscaContato.addEventListener("input", () => {
+        const termoDeBusca = inputBuscaContato.value;
+        console.log(`O termo de busca é: ${termoDeBusca}`);
+        carregarContatos(termoDeBusca);
+    });
 
     const respostasParaOBot = [
         "Olá, tudo bem?",
@@ -122,7 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${mensagem}
                     </div>
                     <div class="flex--1 flex flex--direction--row justify--content--end align--items--center font--size--12 infos--message">
-                        <img src="src/assets/icons/heart.svg" alt="">
                         <div>${horario}</div>
                         <img src="src/assets/icons/viewed.svg" alt="">
                     </div>                                    
@@ -141,10 +149,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function carregarContatos() {
-        const divContatosElement = document.querySelector(".div--contacts");        
+    function carregarContatos(filtro = "") {
+        const divContatosElement = document.querySelector(".div--contacts");      
+        divContatosElement.innerHTML = "";  
 
-        listaDeContatos.forEach((contato, index) => {
+        const contatosFiltrados = listaDeContatos.filter((contato) =>
+            contato.nome.toLowerCase().includes(filtro.toLowerCase())
+        );
+
+        if (contatosFiltrados.length === 0) {
+            divContatosElement.innerHTML = "<div><span>Contato não encontrado</span></div>";
+            return;
+        }
+
+        contatosFiltrados.forEach((contato, index) => {
             console.log(contato);            
             const divParentElement = document.createElement("div");
             divParentElement.classList.add("flex", "area--contact", "fade-in");
