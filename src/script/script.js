@@ -52,6 +52,9 @@ const listaDeContatos = [
 document.addEventListener("DOMContentLoaded", () => {
     console.log("minha pagina carregou!");
 
+    let abaFocada = true;
+    const tituloOriginal = document.title;
+
     const inputMsg = document.querySelector("#inputMensagem");
     console.log(inputMsg);
 
@@ -91,6 +94,17 @@ document.addEventListener("DOMContentLoaded", () => {
             abrirMenuReacao(mensagem);
         }
     });
+
+    window.addEventListener("blur", () => {
+        abaFocada = false;
+        document.title = "O chat saiu";
+    });
+
+    window.addEventListener("focus", () => {
+        abaFocada = true;
+        document.title = tituloOriginal;
+    });
+    
 
     const listaEmojis = [
         "&#128511",
@@ -207,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
             listaMensagens.appendChild(mensagemRenderizada);
             inputMsg.value = "";
 
-            setTimeout(responderMensagem, 2000);
+            setTimeout(responderMensagem, 3000);
         }
     }
 
@@ -216,6 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const mensagemDoBot = respostasParaOBot[posicao];
         const mensagemRenderizada = renderizarMensagem("recebida", mensagemDoBot, "21:21");
         listaMensagens.appendChild(mensagemRenderizada);
+        notificarNovamensagem();
     }
 
     buttonSend.addEventListener("click", () => {
@@ -312,6 +327,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 divContatosElement.appendChild(divParentElement);
         });
     }
+
+    function notificarNovamensagem() {
+        let contador = 0;
+        const intervalo = setInterval(() => {
+            document.title = (contador % 2 === 0) ? `(${contador}) Nova mensagem!` : tituloOriginal;
+            contador++;
+            if(abaFocada) {
+                clearInterval(intervalo);
+                document.title = tituloOriginal;
+            }                
+        }, 1000);
+    }
+
     setTimeout(() => {
         carregarContatos();
     }, 2500);
