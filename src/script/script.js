@@ -85,6 +85,74 @@ document.addEventListener("DOMContentLoaded", () => {
         carregarContatos(termoDeBusca);
     });
 
+    listaMensagens.addEventListener("click", () => {
+        if (event.target.classList.contains("emojis--reaction")) {
+            const mensagem = event.target.closest(".message");
+            abrirMenuReacao(mensagem);
+        }
+    });
+
+    const listaEmojis = [
+        "&#128511",
+        "&#128514",
+        "&#128516",
+        "&#128517",
+        "&#128518",
+        "&#128519",
+        "&#128520",
+    ];
+    const listaEmojis2 = [
+        "🗿",
+        "😂",
+        "😄",
+        "😅",
+        "😆",
+        "😇",
+        "😈"
+    ];
+    
+    function abrirMenuReacao(mensagem) {
+        console.log(mensagem);
+        const areaEmojis = mensagem.querySelector(".area-emojis");
+
+        listaEmojis2.forEach((emoji) => {
+            const emojiElement = document.createElement("span");
+            emojiElement.classList.add("emoji-opcao", "cursor--pointer");
+
+            emojiElement.textContent = emoji;
+            //emojiElement.innerHTML = emoji;
+
+            emojiElement.addEventListener("click", () => {
+                //alert("Você reagiu com: " + emoji);
+                alternarEmojis(mensagem, emoji);
+
+            });
+
+            areaEmojis.appendChild(emojiElement);
+        });
+    }
+
+    function alternarEmojis(mensagem, emoji) {
+        let reacaoExistente = mensagem.querySelector(".emoji--selecionado");
+
+        if (reacaoExistente && reacaoExistente.textContent.includes(emoji)) {
+            reacaoExistente.textContent = reacaoExistente.textContent.replace(emoji, "");
+
+            if (reacaoExistente.textContent.trim() === "") {
+                reacaoExistente.remove();
+            }
+        }else {
+            if (!reacaoExistente) {
+                reacaoExistente = document.createElement("div");
+                reacaoExistente.classList.add("emoji--selecionado");
+                mensagem.appendChild(reacaoExistente);
+            }
+
+            reacaoExistente.textContent += emoji;
+        } 
+    }
+    
+
     const respostasParaOBot = [
         "Olá, tudo bem?",
         "Como você está?",
@@ -173,6 +241,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${mensagem}
                     </div>
                     <div class="flex--1 flex flex--direction--row justify--content--end align--items--center font--size--12 infos--message">
+                        <div class="emojis--reaction cursor--pointer">&#128514</div>
+                        <div class="area-emojis"></div>
+                        <img src="src/assets/icons/heart.svg" alt="">
                         <div>${horario}</div>
                         <img src="src/assets/icons/viewed.svg" alt="">
                     </div>                                    
