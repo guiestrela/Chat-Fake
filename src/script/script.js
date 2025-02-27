@@ -69,6 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputBuscaContato = document.querySelector(".div--search input[type='search']");
     console.log(inputBuscaContato);
 
+    const inputBuscaMensagem = document.getElementById("search-message");
+    console.log(inputBuscaMensagem);
+
+    inputBuscaMensagem.addEventListener("input", () => {
+        const termoDeBusca = inputBuscaMensagem.value;
+        console.log(`O termo de busca é: ${termoDeBusca}`);
+        buscarMensagem(termoDeBusca);
+    });
+
+
     inputBuscaContato.addEventListener("input", () => {
         const termoDeBusca = inputBuscaContato.value;
         console.log(`O termo de busca é: ${termoDeBusca}`);
@@ -86,6 +96,38 @@ document.addEventListener("DOMContentLoaded", () => {
         "Qual é a sua idade?",
         "O que você faz da vida?",
     ];
+
+    function buscarMensagem(termo) {
+        let = encontrouMensagem = false;
+        const mensagemElement = document.querySelectorAll(".message");
+        mensagemElement.forEach((mensagem) => {
+            const textoOriginal = mensagem.innerText;
+            const textoFormatado = textoOriginal.toLowerCase();
+            const termoFormatado = termo.toLowerCase();
+
+            if (textoFormatado.includes(termoFormatado)) {
+                encontrouMensagem = true;
+
+                const textoDestacado = textoOriginal.replace(new RegExp(`(${termo})`, "gi"), '<span class="highlight">$1</span>');
+
+                mensagem.innerHTML = textoDestacado;
+
+                mensagem.style.display = "block";
+            }else {
+                mensagem.style.display = "none";
+            }            
+        });
+
+        if (!encontrouMensagem && termo !== "") {
+            listaMensagens.innerHTML = "<div>Nenhuma mensagem encontrada</div>";
+        }else if (!encontrouMensagem && termo === "") {
+            mensagemElement.forEach((mensagem) => {
+                mensagem.style.display = "block";
+                mensagem.innerHTML = mensagem.innerText;
+            });
+        }
+    }
+
 
     function enviarMensagem() {
         const texto = inputMsg.value.trim();
