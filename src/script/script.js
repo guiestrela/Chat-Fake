@@ -53,38 +53,38 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("minha pagina carregou!");
 
     let abaFocada = true;
-    const tituloOriginal = document.title;
+    //const tituloOriginal = document.title;
 
     const inputMsg = document.querySelector("#inputMensagem");
-    console.log(inputMsg);
+    //console.log(inputMsg);
 
     inputMsg.placeholder = "Please enter your message";
 
     const buttons = document.querySelectorAll(".cursor--pointer");
-    console.log(buttons);
+    //console.log(buttons);
 
     const buttonSend = document.querySelector(".cursor--pointer[src*='send']");
-    console.log(buttonSend);
+    //console.log(buttonSend);
 
     const listaMensagens = document.querySelector(".div--messages");
-    console.log(listaMensagens);
+    //console.log(listaMensagens);
 
     const inputBuscaContato = document.querySelector(".div--search input[type='search']");
-    console.log(inputBuscaContato);
+    //console.log(inputBuscaContato);
 
     const inputBuscaMensagem = document.getElementById("search-message");
-    console.log(inputBuscaMensagem);
+    //console.log(inputBuscaMensagem);
 
     inputBuscaMensagem.addEventListener("input", () => {
         const termoDeBusca = inputBuscaMensagem.value;
-        console.log(`O termo de busca é: ${termoDeBusca}`);
+        //console.log(`O termo de busca é: ${termoDeBusca}`);
         buscarMensagem(termoDeBusca);
     });
 
 
     inputBuscaContato.addEventListener("input", () => {
         const termoDeBusca = inputBuscaContato.value;
-        console.log(`O termo de busca é: ${termoDeBusca}`);
+        //console.log(`O termo de busca é: ${termoDeBusca}`);
         carregarContatos(termoDeBusca);
     });
 
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
     
     function abrirMenuReacao(mensagem) {
-        console.log(mensagem);
+        //console.log(mensagem);
         const areaEmojis = mensagem.querySelector(".area-emojis");
 
         listaEmojis2.forEach((emoji) => {
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const texto = inputMsg.value.trim();
         
         if (texto === "") {
-            alert("Please enter a message");
+            //alert("Please enter a message");
         } else {
             const mensagemRenderizada = renderizarMensagem("enviada", texto, "21:11");
             listaMensagens.appendChild(mensagemRenderizada);
@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         contatosFiltrados.forEach((contato, index) => {
-            console.log(contato);            
+            //console.log(contato);            
             const divParentElement = document.createElement("div");
             divParentElement.classList.add("flex", "area--contact", "fade-in");
 
